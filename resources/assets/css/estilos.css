@@ -1,0 +1,17 @@
+.titulologo{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+}
+
+
+@media screen and (max-width: 280px) {
+	.search{
+		width: 100%;
+	}
+	.col-9{
+		max-width: 5%;
+	}
+	.col-2{
+		max-width: 0;
+	}
+}
