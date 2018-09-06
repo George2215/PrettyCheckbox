@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Roles del Sistema</h3>
-                    <div class="d-flex">                        
+                    <div class="d-flex">
                         <div class="col-9">
                         </div>
                         <div class="col-2">
@@ -141,16 +141,16 @@
                                 
                                 <div class="form-group">                        
                                     <label>Lista de permisos</label>
-                                    <hr>                    
-                                </div>                             
+                                    <hr>
+                                </div>
                                 
-                                <!--<div class="checkboxes" v-for="(permission, index) in arrayPermissions" :key="index">           
+                                <!--<div class="checkboxes" v-for="(permission, index) in arrayPermissions" :key="index">
                                     <input class="form-check-input" type="checkbox" :value="permission" v-model="permissions">
                                     <label :for="index" class="check" v-text="permission.name">
                                     </label>
                                 </div>-->
 
-                                <!--<div class="checkboxes label-cbx" v-for="permission in arrayPermissions">           
+                                <!--<div class="checkboxes label-cbx" v-for="permission in arrayPermissions">
                                     <input type="checkbox" :value="permission" v-model="permissions">
                                     <label :for="permission" class="check" v-text="permission.name">
                                     </label>
@@ -204,7 +204,7 @@
     //import axios from 'axios'    
     import toastr from 'toastr'
     import PrettyCheckbox from 'pretty-checkbox-vue';
-    Vue.use(PrettyCheckbox); 
+    Vue.use(PrettyCheckbox);
 
     export default {
         data(){
@@ -261,21 +261,17 @@
             }           
         },
         watch: {
-            permissions(value) {                
+            arrayPermissions(value) {
                 console.log(value);
-                //this.permissions = value;
-                //this.getPermissions();
-                //this.permissions = this.arrayRoles[id]['permissions'];                
-                /*let p=[];    */
-                //let roles = this.arrayRoles;                  
-                //console.log(roles);
-                //for(var p=0; p<roles.length;p++){
-                    //console.log(roles[p]['id',value]['permissions']);
-                    /*for(var i=0; i<value.length;i++){
-                        console.log(this.arrayPermissions[p]=value[i]);                        
-                        //console.log(roles[i]['id']['permissions']);                        
-                    }*/
-                //}                            
+                if (this.permissions.length) {
+                    const find = require('lodash/fp/find');
+                    let permissions = [];
+                    for (let p of this.permissions) {
+                        let permission = find(o => o.id === p.id)(value);
+                        permissions.push(permission);
+                    }
+                    this.permissions = permissions;
+                }
             }
         },                
         methods:{
@@ -361,7 +357,7 @@
                 //console.log(role);                                         
                 this.idrole   = role.id;
                 this.name = role.name;
-                this.permissions = role['permissions'];                                        
+                this.permissions = role['permissions'];
                 this.editModal();//muestra el formulario
             },
             updateRole(id){
