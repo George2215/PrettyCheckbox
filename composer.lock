@@ -426,7 +426,7 @@
                 "erusev/parsedown": "~1.7",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
-                "league/flysystem": "^1.0.8",
+                "league/flysystem": "^1.1.4",
                 "monolog/monolog": "~1.12",
                 "mtdowling/cron-expression": "~1.0",
                 "nesbot/carbon": "^1.24.1",
@@ -674,7 +674,8 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.45",
+            "version": "1.1.4
+            ",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
